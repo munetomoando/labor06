@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>長期雇用と年功賃金 丸わかり | 労働経済論 第6回</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: { inlineMath: [['$', '$']], displayMath: [['$$', '$$']] },
+  chtml: { scale: 1.05 }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+<style>
+:root {
+  --ink: #1f2937;
+  --ink-soft: #4b5563;
+  --muted: #6b7280;
+  --accent: #1e3a8a;
+  --accent-2: #0e7490;
+  --accent-3: #b45309;
+  --bg: #fafaf7;
+  --surface: #ffffff;
+  --line: #e5e7eb;
+  --line-soft: #f1f1ec;
+  --highlight: #fef3c7;
+  --good: #047857;
+  --danger: #b91c1c;
+}
+* { box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; }
+body {
+  margin: 0;
+  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-feature-settings: "palt";
+  color: var(--ink-soft);
+  background: var(--bg);
+  line-height: 1.75;
+}
+.page { max-width: 880px; margin: 0 auto; padding: 32px 24px 80px; }
+@media (max-width: 620px) { .page { padding: 20px 14px 60px; } }
+
+.cover {
+  border-left: 6px solid var(--accent);
+  padding: 20px 24px;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f7fc 100%);
+  border-radius: 4px 14px 14px 4px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, .05);
+  margin-bottom: 24px;
+}
+.cover .eyebrow {
+  font-size: 11px; font-weight: 700; color: var(--muted);
+  letter-spacing: .2em; margin-bottom: 6px;
+}
+.cover h1 {
+  font-size: 28px; font-weight: 900;
+  color: var(--accent);
+  margin: 0 0 6px;
+  line-height: 1.3; letter-spacing: .02em;
+}
+.cover .sub { font-size: 14px; color: var(--muted); }
+
+section { margin: 40px 0; }
+.section-title {
+  font-size: 22px; font-weight: 900;
+  color: var(--ink);
+  margin: 0 0 16px; padding-bottom: 10px;
+  border-bottom: 2px solid var(--line);
+  display: flex; align-items: center; gap: 10px;
+  line-height: 1.3; letter-spacing: .02em;
+}
+h3 {
+  font-size: 17px; font-weight: 700;
+  color: var(--accent);
+  margin: 28px 0 10px;
+  line-height: 1.3;
+}
+h4 {
+  font-size: 15px; font-weight: 700;
+  color: var(--ink);
+  margin: 18px 0 8px;
+}
+p { margin: 10px 0; font-size: 15px; }
+strong { color: var(--ink); }
+ul, ol { padding-left: 20px; }
+li { margin: 4px 0; font-size: 15px; }
+
+.step-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 56px; height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  color: white;
+}
+.step-badge.intro { background: var(--accent); }
+.step-badge.step1 { background: var(--accent-2); }
+.step-badge.step2 { background: var(--accent-2); }
+.step-badge.step3 { background: var(--accent-3); }
+.step-badge.step4 { background: var(--accent-3); }
+.step-badge.limits { background: var(--accent); }
+.step-badge.summary { background: var(--accent); }
+
+.toc {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  margin: 20px 0 8px;
+}
+@media (max-width: 620px) { .toc { grid-template-columns: 1fr; } }
+.toc a {
+  display: block; padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  text-decoration: none; color: var(--ink);
+  transition: all .15s;
+}
+.toc a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, .08);
+  border-color: #c7d2fe;
+}
+.toc .num {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; font-weight: 700; color: var(--muted);
+  letter-spacing: .2em;
+}
+.toc .ttl { font-size: 15px; font-weight: 700; color: var(--accent); margin: 4px 0 2px; }
+.toc .desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 16px 0;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, .04);
+}
+.callout {
+  background: #ecfeff;
+  border-left: 4px solid var(--accent-2);
+  border-radius: 4px 10px 10px 4px;
+  padding: 12px 16px;
+  margin: 14px 0;
+}
+.callout.step2 { background: #fff7ed; border-left-color: var(--accent-3); }
+.callout.intro { background: #eef2ff; border-left-color: var(--accent); }
+.callout p { margin: 6px 0; font-size: 14.5px; }
+.callout ul { margin: 6px 0; }
+
+.note {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 14.5px;
+  margin: 14px 0;
+}
+.note .tag {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  color: #92400e; margin-right: 8px;
+}
+.note p { margin: 4px 0; }
+
+.math-block {
+  background: #f8f8f3;
+  border: 1px dashed #d6d3c7;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 16px;
+  overflow-x: auto;
+}
+
+.discuss {
+  background: #ecfeff;
+  border-left: 4px solid var(--accent-2);
+  border-radius: 4px 12px 12px 4px;
+  padding: 14px 18px;
+  margin: 18px 0;
+}
+.discuss-head {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 8px;
+}
+.discuss-tag {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  color: #fff; background: var(--accent-2);
+  padding: 3px 10px; border-radius: 999px;
+}
+.discuss-time {
+  font-size: 12px; font-weight: 700; color: var(--muted);
+  letter-spacing: .04em;
+}
+.discuss-q { font-size: 15px; font-weight: 700; color: var(--ink); margin: 4px 0; line-height: 1.7; }
+.discuss-hint { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; }
+.discuss-hint details { margin-top: 6px; }
+.discuss-hint summary {
+  cursor: pointer; font-weight: 700; color: var(--accent-2);
+  font-size: 13px;
+}
+.discuss-hint summary:hover { color: var(--accent); }
+.discuss-hint .body { padding: 8px 0 0; font-size: 13.5px; }
+
+.answer-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 14px 0;
+}
+.answer-head {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+}
+.answer-tag {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  color: #92400e; background: #fef3c7;
+  padding: 3px 10px; border-radius: 999px;
+}
+.answer-id {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px; font-weight: 700; color: var(--accent-3);
+  letter-spacing: .06em;
+}
+.answer-q { font-size: 14px; color: var(--ink); margin: 4px 0 8px; line-height: 1.7; font-weight: 500;}
+textarea.answer-input {
+  width: 100%; min-height: 90px;
+  padding: 10px 12px;
+  border: 1px solid #e5d99c;
+  border-radius: 8px;
+  background: #fffef9;
+  font-family: inherit;
+  font-size: 14px; color: var(--ink);
+  resize: vertical;
+  line-height: 1.6;
+}
+textarea.answer-input:focus {
+  outline: none;
+  border-color: var(--accent-3);
+  background: #ffffff;
+}
+.answer-save {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 11.5px; color: var(--muted);
+}
+.answer-save.saved { color: var(--good); font-weight: 700; }
+
+.graph-wrap {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  margin: 18px 0;
+}
+.graph-title {
+  font-size: 13px; font-weight: 700;
+  color: var(--muted);
+  letter-spacing: .06em;
+  margin-bottom: 10px;
+}
+canvas { display: block; width: 100%; height: 320px; background: #fff; }
+
+.controls {
+  display: flex; flex-wrap: wrap; gap: 14px 24px;
+  margin-top: 14px; padding: 12px 14px;
+  background: #fafaf7; border-radius: 10px;
+}
+.control {
+  display: flex; flex-direction: column; gap: 4px;
+  min-width: 180px; flex: 1;
+}
+.control label {
+  font-size: 12px; font-weight: 700; color: var(--ink-soft);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.control input[type=range] {
+  width: 100%; accent-color: var(--accent);
+}
+.readout {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12.5px; color: var(--ink);
+  background: #f5f5ef; border-radius: 6px; padding: 2px 7px;
+  display: inline-block;
+}
+.readout-panel {
+  display: flex; flex-wrap: wrap;
+  gap: 8px 18px;
+  padding: 10px 14px;
+  margin-top: 10px;
+  background: #f8fafc;
+  border-radius: 10px;
+  font-size: 13px;
+}
+.readout-panel .item { display: inline-flex; gap: 6px; align-items: center; }
+.readout-panel .k { font-weight: 700; color: var(--ink-soft); }
+
+.verdict {
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: #ecfeff;
+  border: 1px solid #a5f3fc;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.verdict strong { color: var(--accent); }
+.verdict .ok { color: var(--good); font-weight: 700; }
+.verdict .ng { color: var(--danger); font-weight: 700; }
+
+table {
+  border-collapse: collapse;
+  width: 100%; font-size: 14px;
+  margin: 14px 0;
+}
+th, td {
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+  text-align: center;
+}
+th { background: #f5f5ef; font-weight: 700; }
+td.lead { text-align: left; font-weight: 700; color: var(--ink); }
+td.highlight { background: var(--highlight); font-weight: 700; }
+
+.static-graph {
+  background: #fcfcfa;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  padding: 12px;
+  margin: 14px 0;
+}
+.static-graph svg {
+  display: block; width: 100%; max-width: 640px;
+  height: auto; margin: 0 auto;
+}
+.caption {
+  font-size: 12.5px; color: var(--muted);
+  text-align: center; margin-top: 6px;
+}
+
+.goal-list {
+  list-style: none; padding: 0; margin: 12px 0;
+}
+.goal-list li {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 8px 0;
+  font-size: 14px;
+}
+.goal-list li .gnum {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px; font-weight: 700;
+  color: #fff; background: var(--accent);
+  padding: 2px 8px; border-radius: 999px;
+  margin-right: 8px; letter-spacing: .04em;
+}
+
+/* 因果の連鎖（フロー） */
+.flow {
+  list-style: none; padding: 0;
+  margin: 14px 0;
+  display: flex; flex-direction: column; align-items: stretch;
+}
+.flow li {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px 10px 10px 4px;
+  padding: 10px 14px;
+  margin: 0 0 28px;
+  font-size: 14.5px;
+}
+.flow li:last-child { margin-bottom: 0; }
+.flow li:not(:last-child)::after {
+  content: "↓";
+  position: absolute;
+  left: 22px; bottom: -24px;
+  font-size: 16px; font-weight: 700; color: var(--muted);
+}
+.flow li strong { color: var(--accent); }
+.flow li .res {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  letter-spacing: .08em; color: #fff; background: var(--accent-2);
+  padding: 1px 8px; border-radius: 999px; margin-right: 8px;
+}
+
+/* 仮説などの並列カード */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+@media (max-width: 620px) { .split { grid-template-columns: 1fr; } }
+.split .card { margin: 0; }
+.split .card h4 { margin-top: 0; }
+
+.footer {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}
+
+a.inline-link { color: var(--accent-2); }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- COVER -->
+<div class="cover">
+  <div class="eyebrow">労働経済論 第6回 補助教材</div>
+  <h1>長期雇用と年功賃金 丸わかり</h1>
+  <div class="sub">正社員の給料はどう決まる？ — 生涯賃金・割引現在価値・「後払い」としての年功賃金</div>
+</div>
+
+<!-- TOC -->
+<nav class="toc">
+  <a href="#intro">
+    <div class="num">00 / INTRO</div>
+    <div class="ttl">賃金の決まり方</div>
+    <div class="desc">短期の相場賃金と、長期雇用の違い</div>
+  </a>
+  <a href="#step1">
+    <div class="num">01 / STEP 1</div>
+    <div class="ttl">正社員と長期雇用</div>
+    <div class="desc">無期・直接・フルタイムと、40年を超える関係</div>
+  </a>
+  <a href="#step2">
+    <div class="num">02 / STEP 2</div>
+    <div class="ttl">生涯賃金</div>
+    <div class="desc">一生で得る賃金の総額と、企業による違い</div>
+  </a>
+  <a href="#step3">
+    <div class="num">03 / STEP 3</div>
+    <div class="ttl">利子率と割引現在価値</div>
+    <div class="desc">いつ受け取るかで価値が変わる</div>
+  </a>
+  <a href="#step4">
+    <div class="num">04 / STEP 4</div>
+    <div class="ttl">年功賃金とは</div>
+    <div class="desc">実質的な「後払い」の仕組みと理由</div>
+  </a>
+  <a href="#limits">
+    <div class="num">05 / 慣行</div>
+    <div class="ttl">日本的雇用慣行とその変化</div>
+    <div class="desc">三本柱・形成の論理・フラット化</div>
+  </a>
+  <a href="#summary">
+    <div class="num">06 / SUMMARY</div>
+    <div class="ttl">まとめと次回への課題</div>
+    <div class="desc">本日の流れと事前学習</div>
+  </a>
+</nav>
+
+<!-- INTRO -->
+<section id="intro">
+  <h2 class="section-title"><span class="step-badge intro">INTRO</span>賃金の決まり方</h2>
+
+  <p>前回は、<strong>アルバイトの時給がどのように決まるか</strong>を学んだ。短期的な雇用関係では、労働の需要と供給が一致する点として、<strong>相場の賃金（均衡賃金）</strong>が決まる。短期間だけ働くアルバイトの時給は、この相場に沿って設定するしかなく、それ以外の選択肢は実質的にない。</p>
+
+  <p>では、視点を変えてみよう。<strong>あなたが会社を経営して社員を雇用する</strong>とする。新入社員から定年まで働く可能性がある<strong>正社員の給料</strong>は、どう決めればよいだろうか。短期の相場どおりに毎月の給料を決めればよい、という話では済まない。今回は、この<strong>長期雇用における賃金</strong>の決まり方を考える。</p>
+
+  <div class="discuss">
+    <div class="discuss-head">
+      <span class="discuss-tag">話し合い 0</span>
+      <span class="discuss-time">目安：3 分</span>
+    </div>
+    <div class="discuss-q">そもそも「正社員」とは、どのような働き方だろうか。正社員ではない働き方（アルバイト・派遣・契約社員など）と何が違うのか、周りの 3〜4 人で挙げてみよう。</div>
+    <div class="discuss-hint">
+      <details>
+        <summary>考えるヒント</summary>
+        <div class="body">
+          ・契約期間に「定め」があるか、ないか<br>
+          ・雇い主と直接の契約か、それとも別の会社から派遣されているか<br>
+          ・労働時間はフルタイムか、短時間か<br>
+          ・「いつまで働けるか」の見通しはどう違うか
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <h3>本日のゴール</h3>
+  <ol class="goal-list">
+    <li><span class="gnum">G1</span>正社員を特徴づける<strong>無期・直接・フルタイム</strong>の 3 条件を説明し、無期雇用が実際には「定年まで・さらにその先まで」の長期的な関係になりうることを理解する</li>
+    <li><span class="gnum">G2</span><strong>生涯賃金</strong>の意味を説明し、同じ総額でも<strong>いつ受け取るか</strong>で労働者にとっての価値が変わることを指摘できる</li>
+    <li><span class="gnum">G3</span>利子率 $r$ と<strong>割引因子</strong> $\delta = 1/(1+r)$ を使って、将来受け取る金額の<strong>現在価値</strong>を計算できる</li>
+    <li><span class="gnum">G4</span><strong>年功賃金</strong>が実質的な「後払い」であることを理解し、企業が後払いを望む理由・労働者が受け入れた理由を説明できる</li>
+  </ol>
+</section>
+
+<!-- STEP 1 -->
+<section id="step1">
+  <h2 class="section-title"><span class="step-badge step1">STEP 1</span>正社員と長期雇用</h2>
+
+  <h3>「正社員」に法律上の定義はない</h3>
+  <p>意外に思うかもしれないが、<strong>「正社員」という言葉に法律上の明確な定義はない</strong>。専門家の間では、次の <strong>3 条件</strong>を満たす働き方を指すことが多い。</p>
+
+  <ul>
+    <li><strong>無期</strong>：雇用契約に期間の定めがない</li>
+    <li><strong>直接</strong>：働く会社と直接に雇用契約を結んでいる（派遣などではない）</li>
+    <li><strong>フルタイム</strong>：その会社の所定労働時間をフルに働く</li>
+  </ul>
+
+  <p>ただし企業の現場では、「正社員」は多様な使われ方をする言葉でもある。たとえば <strong>「短時間正社員」</strong> のように、フルタイムでなくても正社員として扱う制度もある。</p>
+
+  <div class="note">
+    <span class="tag">参考</span>
+    <p>厚生労働省「短時間正社員制度 導入支援ナビ」<br>
+    <a class="inline-link" href="https://part-tanjikan.mhlw.go.jp/tayou/tanjikan/outline/" target="_blank" rel="noopener">https://part-tanjikan.mhlw.go.jp/tayou/tanjikan/outline/</a></p>
+  </div>
+
+  <h3>「無期雇用」とは、実際には何を意味するか</h3>
+  <p>無期雇用とは、<strong>本来はいつでも・どちら側からでも辞められる契約</strong>である。期間の定めがないからこそ、いつでも解約を申し入れられる。実際に民法にそう書かれている。</p>
+
+  <div class="note">
+    <span class="tag">民法 第627条</span>
+    <p>期間の定めのない雇用は、<strong>各当事者がいつでも解約の申入れをすることができ</strong>、申入れの日から<strong>2 週間を経過すると終了する</strong>（第 1 項）。つまり「無期」とは「ずっと辞められない」という意味ではない。</p>
+  </div>
+
+  <p>しかし<strong>現在の運用</strong>では、契約した仕事がある限り、またその仕事を本人がこなせる限り、<strong>定年まで働き続けてもらう</strong>のが一般的だ。結果として、無期雇用は非常に長い関係になる。</p>
+
+  <div class="callout">
+    <p><strong>どれくらい長い関係になりうるか</strong></p>
+    <ul>
+      <li>大卒の 22 歳が新卒で就職すると、定年が 60 歳でも、<strong>継続雇用を含めれば 40 年を超える</strong>長期的な関係になる可能性がある</li>
+      <li>制度上は <strong>65 歳までの継続雇用義務</strong>に加え、<strong>令和 3 年（2021）4 月から 70 歳までの就業機会確保（努力）義務</strong>が加わった</li>
+      <li>これからは<strong>定年の引き上げ</strong>が行われる可能性が高い</li>
+      <li>もちろん、労働者による離職や、会社側からの解雇の可能性はある</li>
+    </ul>
+  </div>
+
+  <div class="callout intro">
+    <p>だからこそ、正社員の賃金は「今月の相場でいくら」と一発で決まるものではない。<strong>長い時間をかけて、いくらを・いつ支払うか</strong>という配分の問題になる。これが今回の主題である。</p>
+  </div>
+
+  <div class="answer-box">
+    <div class="answer-head">
+      <span class="answer-tag">あなたの回答</span>
+      <span class="answer-id">Q1</span>
+    </div>
+    <div class="answer-q">あなたが企業の経営者だとして、「短期間だけ働くアルバイト」と「定年まで働く可能性のある正社員」とでは、賃金の決め方をどう変えるべきだと思うか。違いを 2〜3 点挙げて説明しよう。</div>
+    <textarea class="answer-input" data-qid="q1" placeholder="アルバイト：…&#10;正社員：…&#10;違い 1：…&#10;違い 2：…"></textarea>
+    <span class="answer-save" data-for="q1">未保存</span>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section id="step2">
+  <h2 class="section-title"><span class="step-badge step2">STEP 2</span>生涯賃金</h2>
+
+  <p>長期雇用における賃金を考える前に、まず<strong>生涯賃金</strong>を見てみよう。<strong>生涯賃金とは、ひとりの労働者が生涯にわたって得る賃金の総額</strong>のことである。</p>
+
+  <h3>生涯賃金はどのくらいか（JILPT の推計）</h3>
+  <p>労働政策研究・研修機構（JILPT）の「ユースフル労働統計 2025」（2024 年のデータ）による推計を見る。前提は、<strong>フルタイムの正社員として 60 歳まで働き、退職金を受け取り、61 歳以降は平均引退年齢まで非正規で働く</strong>場合である（退職金・定年以降を含む）。</p>
+
+  <table>
+    <tr><th></th><th>定年まで</th><th>退職金</th><th>定年以降</th><th>合計</th></tr>
+    <tr><td class="lead">男性・高校卒</td><td>215.6</td><td>14.4</td><td>45.3</td><td class="highlight">275.3</td></tr>
+    <tr><td class="lead">男性・大学卒</td><td>262.8</td><td>18.4</td><td>58.3</td><td class="highlight">339.5</td></tr>
+    <tr><td class="lead">女性・高校卒</td><td>157.9</td><td>14.4</td><td>27.7</td><td class="highlight">200.0</td></tr>
+    <tr><td class="lead">女性・大学卒</td><td>209.9</td><td>18.4</td><td>38.9</td><td class="highlight">267.2</td></tr>
+  </table>
+  <p class="caption">単位：百万円。出典：労働政策研究・研修機構「ユースフル労働統計 2025」図 21-2（引退まで・退職金を含む、2024 年）</p>
+
+  <h3>企業によって大きく違う</h3>
+  <p>生涯賃金は、勤める企業によって大きく異なる。『会社四季報』掲載の上場企業約 3,900 社（単体従業員数が 10 人未満や平均賃金の発表がない企業などを除く）を対象にした<strong>東洋経済の「生涯給料ランキング」</strong>では、次のような傾向が読み取れる。</p>
+
+  <ul>
+    <li>最上位クラスでは、生涯給料の推計が <strong>9 億円超</strong>に達する企業もある</li>
+    <li>上位 15 社くらいまでは、<strong>平均年収が 1,500 万円を超えている</strong></li>
+    <li>調査対象となった上場企業の<strong>平均生涯賃金は約 2 億 4,133 万円</strong></li>
+  </ul>
+
+  <div class="static-graph">
+    <img src="images/fig-salary-ranking.png" alt="生涯給料ランキング【全国版】上位50社（順位・社名・生涯給料推計・平均年収・平均年齢）" style="display:block;width:100%;max-width:860px;margin:0 auto;border-radius:6px;">
+    <div class="caption">生涯給料ランキング【全国版】上位 50 社（順位・社名・生涯給料推計・平均年収・平均年齢）。最上位は 9 億円超、上位 15 社ほどは平均年収 1,500 万円超。出所：東洋経済オンライン（2026 年 3 月 3 日）https://toyokeizai.net/articles/-/936126</div>
+  </div>
+
+  <div class="callout">
+    <p>平均生涯賃金 2 億 4,133 万円は、22 歳から 60 歳までの<strong>約 38 年間</strong>の総額である。単純に 1 年あたりに割ると、<br>
+    $\;2{,}4133 \div 38 \approx 635\;$（万円／年）。</p>
+    <p>ただし、<strong>この金額を毎年「均等に」受け取るわけではない</strong>。ここが今回の重要なポイントになる。</p>
+  </div>
+
+  <div class="discuss">
+    <div class="discuss-head">
+      <span class="discuss-tag">話し合い 1</span>
+      <span class="discuss-time">目安：4 分</span>
+    </div>
+    <div class="discuss-q">生涯賃金が高い企業は、どのような会社だろうか。(1) どのような業界に多いか、(2) 同じ業界でも賃金が高い会社は、どのような理由で高いのか、を話し合おう。</div>
+    <div class="discuss-hint">
+      <details>
+        <summary>考えるヒント</summary>
+        <div class="body">
+          ・一人あたりが生み出す付加価値が大きい業界か？（金融・商社・専門サービスなど）<br>
+          ・参入障壁・専門性が高く、できる人が限られているか？<br>
+          ・同業界での差は、規模・収益力・労働者一人あたりの生産性の違いで説明できそうか？
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="answer-box">
+    <div class="answer-head">
+      <span class="answer-tag">あなたの回答</span>
+      <span class="answer-id">Q2</span>
+    </div>
+    <div class="answer-q">生涯賃金が高い企業に共通する特徴を 2〜3 点挙げ、それぞれ「需要が大きい／供給が限られる」のどちらの要因で説明できるかを書こう（第 5 回の枠組みを使ってよい）。</div>
+    <textarea class="answer-input" data-qid="q2" placeholder="特徴 1：… → 需要 / 供給&#10;特徴 2：… → 需要 / 供給&#10;特徴 3：… → 需要 / 供給"></textarea>
+    <span class="answer-save" data-for="q2">未保存</span>
+  </div>
+
+  <h3>同じ総額でも「いつ受け取るか」で価値が変わる</h3>
+  <p>生涯賃金が同じ金額（たとえば 2 億円）でも、<strong>いつ受け取るのか</strong>によって、労働者にとっての価値は異なる。約 38 年（22〜60 歳）の働き方として、次の 3 つの受け取り方を比べてみよう。いずれも名目の総額は同じ <strong>2 億円</strong>である。</p>
+
+  <table>
+    <tr><th>パターン</th><th>受け取り方</th><th>名目の総額</th></tr>
+    <tr><td class="lead">A（後払い型）</td><td>最初の 30 年間は 400 万円／年、最後の 8 年間は 1,000 万円／年</td><td>2 億円</td></tr>
+    <tr><td class="lead">B（均等型）</td><td>38 年間、毎年ほぼ均等に約 526 万円／年</td><td>2 億円</td></tr>
+    <tr><td class="lead">C（前払い型）</td><td>最初の 8 年間は 1,000 万円／年、その後の 30 年間は 400 万円／年</td><td>2 億円</td></tr>
+  </table>
+
+  <div class="discuss">
+    <div class="discuss-head">
+      <span class="discuss-tag">話し合い 2</span>
+      <span class="discuss-time">目安：3 分</span>
+    </div>
+    <div class="discuss-q">あなたなら、A・B・C のどのパターンが良いだろうか。総額は同じなのに、なぜ好みが分かれるのか考えよう。次の STEP 3 で、この違いを「割引現在価値」として数値化する。</div>
+  </div>
+</section>
+
+<!-- STEP 3 -->
+<section id="step3">
+  <h2 class="section-title"><span class="step-badge step3">STEP 3</span>利子率と割引現在価値</h2>
+
+  <p>受け取る総額が同じならば、単純に考えて<strong>若いうちに（早く）受け取るほうが価値が高い</strong>。なぜそう言えるのか。利子率と「割引」の考え方で説明できる。</p>
+
+  <h3>今の 1 万円と、1 年後の 1 万円</h3>
+  <p>「1 万円もらえるとして、<strong>今</strong>欲しいか、それとも <strong>1 年後</strong>に欲しいか」と聞くと、ほとんどの人は「今」と答える。理由のひとつは、<strong>早く受け取って銀行に預けておけば、利子がつく</strong>からだ。</p>
+
+  <p>利子率を $r\;(>0)$ とする。今の 1 万円を預けると、1 年後には $(1+r)$ 万円になる。つまり、あなたにとって、</p>
+
+  <div class="math-block">
+    $$ \text{現在の } 1 \text{ 万円} \;=\; \text{1 年後の } (1+r) \text{ 万円} $$
+  </div>
+
+  <p>が同じ価値だと考えられる。これを逆に読むと、<strong>1 年後の 1 万円は、現在の価値に直すと 1 万円より小さい</strong>ということになる。</p>
+
+  <h3>割引因子 $\delta$</h3>
+  <p>「1 年後に受け取る 1 万円の、現時点での価値」を求めよう。現在の $x$ 万円が 1 年後に 1 万円になればよいので、$x(1+r)=1$、すなわち $x = \dfrac{1}{1+r}$。この</p>
+
+  <div class="math-block">
+    $$ \delta \;=\; \frac{1}{1+r} \qquad (0 < \delta < 1) $$
+  </div>
+
+  <p>を<strong>割引因子</strong>という。1 年後の金額に $\delta$ を掛けると現在価値になり、$t$ 年後の金額には $\delta^t$ を掛ける。$r$ が大きいほど $\delta$ は小さく、将来のお金は大きく「割り引かれる」。</p>
+
+  <h3>$n$ 年間、毎期末に 1 万円受け取る債券の現在価値</h3>
+  <p>これから $n$ 年間、毎年の期末に 1 万円ずつ受け取れる債券を考える。各年の現在価値を足し合わせると、等比数列の和になる。</p>
+
+  <div class="math-block">
+    \begin{aligned}
+    PV &= \delta + \delta^2 + \delta^3 + \cdots + \delta^n \\
+       &= \frac{\delta\,(1-\delta^{\,n})}{1-\delta}
+        = \frac{1-(1+r)^{-n}}{r} \quad (\text{万円})
+    \end{aligned}
+  </div>
+
+  <div class="note">
+    <span class="tag">応用</span>
+    <p>企業の株式や不動産の価値は、こうして将来のキャッシュフローを割り引いて足し合わせる<strong>収益還元法（DCF など）</strong>で算定されることが多い。今回学ぶ割引現在価値は、金融・不動産の評価にも直結する基本的な考え方である。</p>
+  </div>
+
+  <h3>割引現在価値の計算機</h3>
+  <p>利子率 $r$ と年数 $n$ を動かして、割引因子 $\delta$ と、毎年 1 万円を $n$ 年間受け取る債券の現在価値を確かめよう。</p>
+
+  <div class="graph-wrap">
+    <div class="graph-title">割引現在価値（毎期末に 1 万円・$n$ 年間）</div>
+    <div class="controls">
+      <div class="control">
+        <label>利子率 $r$ <span class="readout" id="r-r">3.0 %</span></label>
+        <input type="range" id="s-r" min="0" max="10" step="0.5" value="3">
+      </div>
+      <div class="control">
+        <label>年数 $n$ <span class="readout" id="r-n">38 年</span></label>
+        <input type="range" id="s-n" min="1" max="40" step="1" value="38">
+      </div>
+    </div>
+    <div class="readout-panel">
+      <span class="item"><span class="k">割引因子 $\delta$：</span><span class="readout" id="r-delta">0.971</span></span>
+      <span class="item"><span class="k">1 年後の 1 万円の現在価値：</span><span class="readout" id="r-pv1">9709 円</span></span>
+      <span class="item"><span class="k">$n$ 年分の現在価値：</span><span class="readout" id="r-pvn">22.5 万円</span></span>
+    </div>
+    <div class="verdict" id="v-pv">利子率が高いほど、また将来であるほど、現在価値は小さくなる。</div>
+  </div>
+
+  <h3>3 つの受け取り方を比べる</h3>
+  <p>STEP 2 の A・B・C は、名目の総額はすべて 2 億円（＝20,000 万円）だった。これを<strong>現在価値</strong>に直すと、どれが一番大きいだろうか。利子率 $r$ を動かして確かめよう。</p>
+
+  <div class="graph-wrap">
+    <div class="graph-title">3 パターンの生涯賃金の現在価値（名目はいずれも 2 億円）</div>
+    <canvas id="canvas-pattern"></canvas>
+    <div class="controls">
+      <div class="control">
+        <label>利子率 $r$ <span class="readout" id="r-r2">3.0 %</span></label>
+        <input type="range" id="s-r2" min="0" max="10" step="0.5" value="3">
+      </div>
+    </div>
+    <div class="readout-panel">
+      <span class="item"><span class="k">A 後払い型：</span><span class="readout" id="r-pvA">— 万円</span></span>
+      <span class="item"><span class="k">B 均等型：</span><span class="readout" id="r-pvB">— 万円</span></span>
+      <span class="item"><span class="k">C 前払い型：</span><span class="readout" id="r-pvC">— 万円</span></span>
+    </div>
+    <div class="verdict" id="v-pattern">利子率が 0 より大きいとき、早く受け取る C が最も現在価値が高く、後払いの A が最も低い。</div>
+  </div>
+
+  <div class="callout">
+    <p><strong>ここまでの結論</strong>：総額が同じでも、<span class="ok">早く受け取る（前払い）ほうが現在価値は高い</span>。逆に言えば、<span class="ng">後払いは受け取る側にとって損</span>になる。年功賃金は、まさにこの「後払い」の性質を持っている。にもかかわらず、日本企業ではなぜ年功賃金が広く使われてきたのか。次の STEP 4 で考える。</p>
+  </div>
+
+  <div class="answer-box">
+    <div class="answer-head">
+      <span class="answer-tag">あなたの回答</span>
+      <span class="answer-id">Q3</span>
+    </div>
+    <div class="answer-q">上の計算機で利子率を 3% にしたとき、A・B・C の現在価値はそれぞれいくらになったか。数値を書き、なぜ C が最も高くなるのかを「割引」の言葉で説明しよう。</div>
+    <textarea class="answer-input" data-qid="q3" placeholder="r = 3% のとき&#10;A = … 万円, B = … 万円, C = … 万円&#10;理由：…"></textarea>
+    <span class="answer-save" data-for="q3">未保存</span>
+  </div>
+</section>
+
+<!-- STEP 4 -->
+<section id="step4">
+  <h2 class="section-title"><span class="step-badge step4">STEP 4</span>年功賃金とは</h2>
+
+  <p>日本企業では、<strong>年功賃金</strong>が採用されているケースが多い。年功賃金とは、<strong>勤続年数（＝年）や貢献（＝功）に応じて賃金が上昇する形態</strong>のこと。実際にはこれは<strong>「後払い」の仕組み</strong>になっている。</p>
+
+  <p>世界的に標準的な働き方では、<strong>その時点での貢献度に見合った賃金を、その時点で受け取る</strong>のが一般的だ。これに対し年功賃金は、若いうちは貢献度より低い賃金しか受け取らず、年齢・勤続が進むと貢献度より高い賃金を受け取る。差額をあとでまとめて受け取る点で、実質的な後払いになっている。</p>
+
+  <div class="static-graph">
+    <svg viewBox="0 0 540 320" xmlns="http://www.w3.org/2000/svg">
+      <!-- 軸 -->
+      <line x1="60" y1="270" x2="500" y2="270" stroke="#4b5563" stroke-width="1.2"/>
+      <line x1="60" y1="270" x2="60" y2="30" stroke="#4b5563" stroke-width="1.2"/>
+      <polygon points="500,270 494,267 494,273" fill="#4b5563"/>
+      <polygon points="60,30 57,36 63,36" fill="#4b5563"/>
+      <text x="60" y="22" font-size="12" fill="#4b5563">賃金・貢献度</text>
+      <text x="430" y="288" font-size="12" fill="#4b5563">勤続年数</text>
+
+      <!-- 貢献度（ゆるやかに上昇する点線） -->
+      <path d="M 80 230 Q 280 150 480 120" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="5 4"/>
+      <text x="395" y="135" font-size="12" font-weight="700" fill="#64748b">貢献度</text>
+
+      <!-- 年功賃金（はじめ低く、後で高い） -->
+      <line x1="80" y1="255" x2="480" y2="80" stroke="#b45309" stroke-width="2.8"/>
+      <text x="395" y="80" font-size="12" font-weight="700" fill="#b45309">年功賃金</text>
+
+      <!-- 交点付近 -->
+      <circle cx="262" cy="174" r="4" fill="#1f2937"/>
+
+      <!-- 前半：賃金 < 貢献度（企業が得） -->
+      <text x="150" y="250" font-size="11" fill="#0e7490" text-anchor="middle">前半：賃金 &lt; 貢献度</text>
+      <text x="150" y="266" font-size="10" fill="#6b7280" text-anchor="middle">（労働者は払い不足＝貸し）</text>
+      <!-- 後半：賃金 > 貢献度（労働者が回収） -->
+      <text x="400" y="180" font-size="11" fill="#b45309" text-anchor="middle">後半：賃金 &gt; 貢献度</text>
+      <text x="400" y="196" font-size="10" fill="#6b7280" text-anchor="middle">（後払い分を回収）</text>
+    </svg>
+    <div class="caption">年功賃金の模式図。若いうちは貢献度より低い賃金（差額は会社への「貸し」）、後半は貢献度より高い賃金で回収する。</div>
+  </div>
+
+  <p>実際の年齢別の賃金は、次の図で確認できる。学歴が高いほど、また年齢（勤続）が進むほど賃金指数が高くなり、勤続とともに賃金が上昇する「年功」的なカーブが読み取れる。</p>
+
+  <div class="static-graph">
+    <img src="images/fig-age-wage-index.png" alt="図13-1 年齢間賃金格差指数（性・学歴別、20〜24歳=100、2024年）男女別の折れ線グラフ" style="display:block;width:100%;max-width:540px;margin:0 auto;border-radius:6px;">
+    <div class="caption">図 13-1 年齢間賃金格差指数（性・学歴別、20〜24 歳 = 100、2024 年）。上が男性、下が女性。中学卒・高校卒・大学卒・大学院卒の別に、年齢階級ごとの賃金水準を指数化したもの。資料：厚生労働省「賃金構造基本統計調査」／労働政策研究・研修機構「ユースフル労働統計 2025」</div>
+  </div>
+
+  <h3>経営者なら、1 年目と 2 年目にいくら払う？</h3>
+  <p>単純化のために、<strong>貢献度に見合った賃金が 500 万円</strong>の労働者を雇っている企業が、<strong>2 年間で総額 1,000 万円</strong>を払うケースを考える。1 年目と 2 年目に、いくらずつ払えばよいだろうか。</p>
+
+  <table>
+    <tr><th>プラン</th><th>1 年目</th><th>2 年目</th><th>総額</th></tr>
+    <tr><td class="lead">プラン 1（均等）</td><td>500</td><td>500</td><td>1,000</td></tr>
+    <tr><td class="lead">プラン 2（後払い）</td><td>400</td><td>600</td><td>1,000</td></tr>
+    <tr><td class="lead">プラン 3（前払い）</td><td>600</td><td>400</td><td>1,000</td></tr>
+  </table>
+  <p class="caption">単位：万円。総額はいずれも 1,000 万円で同じ。</p>
+
+  <div class="discuss">
+    <div class="discuss-head">
+      <span class="discuss-tag">話し合い 3</span>
+      <span class="discuss-time">目安：4 分</span>
+    </div>
+    <div class="discuss-q">労働者は「できるだけ早く受け取りたい」と考える（STEP 3）。では、なぜ企業はあえて後払い（プラン 2 のような形）を選ぶことがあるのか。経営者の立場で、後払いの「メリット」を考えてみよう。</div>
+  </div>
+
+  <h3>後払いは、基本的には「中立」のはず</h3>
+  <p>単純な後払いや分割払いは、<strong>受け取る側からは利子の分だけ損</strong>なことが多い。反対に、支払う側は後払いのほうが得になる。しかし、労働者に後払いを納得してもらうには、支払う側は<strong>その分だけ多く支払わなければならない</strong>。だから、後払いそのものは<strong>基本的には中立</strong>のはずである。</p>
+
+  <p>それなのに、なぜ企業は後払いを望むのか。中立を超える<strong>メリット</strong>があるからだ。</p>
+
+  <div class="card">
+    <h4>企業が後払いを望む 3 つのメリット</h4>
+    <ul>
+      <li><strong>資金繰り</strong>：企業規模が小さいうち（創業初期など）は、あまり賃金を支払わなくてすむ</li>
+      <li><strong>引き止め</strong>：賃金の後払い部分は、労働者が途中で離職した場合には払わなくてよい。だから労働者は辞めにくくなる</li>
+      <li><strong>規律付け</strong>：後払いがあると、不適切な行動（怠ける・問題を起こす）で解雇されると後払い分を失うため、労働者の不適切な行動を抑制できる</li>
+    </ul>
+  </div>
+
+  <h3>なぜ勤続で賃金が上がるのか：2 つの仮説</h3>
+  <div class="split">
+    <div class="card">
+      <h4>人的資本仮説</h4>
+      <p>勤続年数が伸びると、仕事を覚えて活躍の度合いや<strong>貢献度そのものが向上する</strong>から、賃金も上がる、という考え方。</p>
+    </div>
+    <div class="card">
+      <h4>インセンティブ仮説</h4>
+      <p>仮に貢献度が伸びなくても、<strong>離職抑制やサボり防止</strong>に効くから上昇させる、という考え方（後払いによる規律付け）。</p>
+    </div>
+  </div>
+  <div class="callout step2">
+    <p>実際のデータからは、<strong>後者（インセンティブ仮説）の効果がかなり重要</strong>なことがわかっている。年功賃金は、能力形成だけでなく、<strong>働き手を引き止め・規律づける装置</strong>として機能している。</p>
+  </div>
+
+  <h3>労働者は、なぜ後払いを受け入れたのか</h3>
+  <p>年功賃金や退職金の仕組みは、当初は<strong>離職抑制のため</strong>に導入された。労働者の側が後払いの提案を受け入れられた理由としては、次のようなものが挙げられる。</p>
+  <ul>
+    <li><strong>企業の存続可能性が高かった</strong>：会社が将来も続くと信じられたので、後払い分を受け取れる見込みがあった</li>
+    <li><strong>生活給の考え方</strong>：年齢が上がると家族が増え生活費もかさむため、後払い的に賃金が上がることが受け入れられやすかった</li>
+    <li><strong>近視眼的行動へのコミットメント</strong>：双曲割引による近視眼的行動（つい目先を優先する傾向）を前提とすると、強制的に後で受け取らせる仕組みが、貯蓄の代わりとして役立つ面がある</li>
+  </ul>
+
+  <div class="answer-box">
+    <div class="answer-head">
+      <span class="answer-tag">あなたの回答</span>
+      <span class="answer-id">Q4</span>
+    </div>
+    <div class="answer-q">年功賃金（後払い）は労働者にとって割引の分だけ不利なはずなのに、なぜ企業はこれを採用し、労働者も受け入れてきたのか。企業側のメリットと労働者側の理由を、それぞれ 1 つ以上挙げて説明しよう。</div>
+    <textarea class="answer-input" data-qid="q4" placeholder="企業側のメリット：…&#10;労働者が受け入れた理由：…"></textarea>
+    <span class="answer-save" data-for="q4">未保存</span>
+  </div>
+
+  <h3>年功賃金は「宝くじ」と「保険」</h3>
+  <p>年功賃金は、労働者の成果を反映することはあっても、<strong>その差は大きくない</strong>。貢献度が 2 倍違っても、賃金は 2 倍も違わない。なぜこのような仕組みが導入されているのか。</p>
+  <p>就職する段階では、その人に適性があるかどうかを、<strong>企業側も労働者側もよく分からない</strong>。長期雇用の下での年功賃金とは、</p>
+  <div class="callout">
+    <ul>
+      <li><strong>企業にとっては「宝くじを買う」ようなもの</strong>：採用時にはわからないが、なかに大化けする人材がいれば、賃金を抑えつつ大きな貢献を得られる</li>
+      <li><strong>労働者にとっては「保険を買う」ようなもの</strong>：もし自分の能力が高くないと後でわかっても、賃金が大きく下がらず守られる</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 日本的雇用慣行 -->
+<section id="limits">
+  <h2 class="section-title"><span class="step-badge limits">慣行</span>日本的雇用慣行とその変化</h2>
+
+  <h3>日本的雇用慣行の三本柱</h3>
+  <p>長期雇用と年功賃金は、日本企業に特徴的な雇用慣行の一部である。社会学者<strong>ジェームズ・アベグレン</strong>は『日本の経営』（1958 年）で、日本企業の特徴として次の <strong>3 つ</strong>を挙げた。</p>
+  <ol>
+    <li><strong>定年までの長期雇用慣行</strong></li>
+    <li><strong>年功賃金</strong></li>
+    <li><strong>企業別組合</strong></li>
+  </ol>
+
+  <p>これらが成立した歴史的背景としては、<strong>長期的な経済成長による人手不足</strong>と、<strong>労働者が対応できる程度の（急すぎない）技術進歩</strong>があったと考えられる。</p>
+
+  <h3>慣行が形成される論理（因果の連鎖）</h3>
+  <p>これらの慣行は、互いに支え合う形で形成された。主な因果の流れを追うと次のようになる。</p>
+
+  <ul class="flow">
+    <li><span class="res">出発点</span><strong>経済成長による人手不足</strong>。熟練労働者ほど技能が高いため、企業は人材を確保・育成したい。</li>
+    <li><strong>学卒者をまとめて雇用（新卒一括採用）</strong>し、採用後に<strong>社内で教育訓練</strong>を行う。</li>
+    <li>その結果、その企業でこそ価値を発揮する<strong>企業特殊的な人的資本</strong>が蓄積され、内部労働市場を通じた適材適所が実現する。</li>
+    <li>育てた人材を逃したくないので、<strong>年功賃金などによる引き止め策</strong>がとられる（後払いで離職を抑制）。</li>
+    <li>長く勤めることで<strong>企業と労働者の利害が近づき、企業別組合</strong>が成立。これが<strong>長期雇用慣行</strong>を支える。</li>
+    <li><span class="res">帰結</span>転職の受け皿となる<strong>外部労働市場が未発達</strong>になり、ますます内部での長期雇用が合理的になる（慣行が自己強化される）。</li>
+  </ul>
+  <p class="caption">スライドの「日本的雇用慣行の形成」図を、主要な因果の流れに沿って整理したもの。</p>
+
+  <h3>年功賃金のフラット化</h3>
+  <p>近年、年齢が上がっても賃金があまり増えない<strong>「フラット化」</strong>が進んでいる。下の出生年代別の賃金カーブを見ると、<strong>新しい世代ほど賃金カーブがなだらか</strong>になっていることがわかる。</p>
+
+  <div class="static-graph">
+    <img src="images/fig-wage-curve-cohort.png" alt="第2-3-6図 出生年代別の実質賃金カーブ（一般労働者、25〜29歳時点=100）男女別" style="display:block;width:100%;max-width:780px;margin:0 auto;border-radius:6px;">
+    <div class="caption">第 2-3-6 図 出生年代別の実質賃金カーブ（一般労働者、25〜29 歳時点 = 100）。古い世代（1956〜60 年生まれなど）ほどカーブが急で、新しい世代ほどなだらかになっている。出典：内閣府「令和 4 年度 年次経済財政報告」 https://www5.cao.go.jp/j-j/wp/wp-je22/h06_hz020306.html</div>
+  </div>
+
+  <p>なぜ年功賃金はフラット化したのか。考えられる要因は次のとおり。</p>
+  <ul>
+    <li><strong>経済成長や企業の業績向上の鈍化</strong>：右肩上がりを前提にした後払いが維持しにくくなった</li>
+    <li><strong>転職の増加</strong>：定年まで同じ会社にいる前提が崩れ、後払いの「回収」が不確実に</li>
+    <li><strong>企業の永続性への懸念</strong>：会社が将来も続くとは限らず、後払いを約束しにくい</li>
+    <li><strong>成果型賃金の導入</strong>：その時点の貢献に応じて払う方向への移行</li>
+  </ul>
+
+  <div class="answer-box">
+    <div class="answer-head">
+      <span class="answer-tag">あなたの回答</span>
+      <span class="answer-id">Q5</span>
+    </div>
+    <div class="answer-q">年功賃金がフラット化している理由を 1 つ選び、それが「後払いの仕組み（STEP 4）」とどう関係するかを説明しよう。後払いが成り立つ条件が崩れている、という観点で考えてみよう。</div>
+    <textarea class="answer-input" data-qid="q5" placeholder="選んだ要因：…&#10;後払いとの関係：…"></textarea>
+    <span class="answer-save" data-for="q5">未保存</span>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section id="summary">
+  <h2 class="section-title"><span class="step-badge summary">SUMMARY</span>まとめと次回への課題</h2>
+
+  <h3>本日の流れ</h3>
+  <ul>
+    <li><strong>賃金の決まり方</strong>：短期は相場（均衡賃金）に従う。長期雇用では、いくらを・いつ払うかという配分が問題になる</li>
+    <li><strong>正社員と長期雇用</strong>：正社員＝無期・直接・フルタイム。無期雇用は、継続雇用を含めれば 40 年を超える長い関係になりうる</li>
+    <li><strong>生涯賃金</strong>：一生で得る賃金の総額。企業によって大きく異なり、同じ総額でも受け取る時期で価値が変わる</li>
+    <li><strong>利子率と割引現在価値</strong>：割引因子 $\delta = 1/(1+r)$。早く受け取るほど現在価値は高い。後払いは受け取る側に不利</li>
+    <li><strong>年功賃金</strong>：実質的な後払い。引き止め・規律付け・資金繰りのメリットがあり、宝くじ（企業）／保険（労働者）の性質を持つ</li>
+    <li><strong>日本的雇用慣行</strong>：長期雇用・年功賃金・企業別組合の三本柱。近年は賃金カーブがフラット化している</li>
+  </ul>
+
+  <div class="note">
+    <span class="tag">次回の予告</span>
+    <p>次回は、<strong>どのような仕事の賃金がなぜ高いのか</strong>を理解するために、<strong>補償賃金仮説</strong>と<strong>効率賃金仮説</strong>について学ぶ。</p>
+  </div>
+
+  <div class="note">
+    <span class="tag">事前学習</span>
+    <p>個別の企業ではなく、<strong>業種や職種ごと</strong>に、どのような仕事の賃金が高い／低いのかを調べてみよう。次の 10 業界を、<strong>40 歳時点の平均賃金が高い順</strong>に並べてみよう。</p>
+    <p>(1) 自動車　(2) 鉄道　(3) 建設　(4) 介護　(5) 創薬ベンチャー　(6) 食品　(7) 外食　(8) 化粧品　(9) 総合商社　(10) 証券</p>
+    <p>また、賃金に影響を与える要因として、<strong>学歴や勤続年数以外</strong>にどのような要因があるのかを考えてみよう。</p>
+  </div>
+
+  <div class="answer-box">
+    <div class="answer-head">
+      <span class="answer-tag">あなたの回答</span>
+      <span class="answer-id">Q6</span>
+    </div>
+    <div class="answer-q">上の 10 業界を、40 歳時点の平均賃金が高いと思う順に並べ、なぜその順だと考えたかを書こう。さらに、学歴・勤続年数以外で賃金に影響しそうな要因を 2 つ以上挙げよう。</div>
+    <textarea class="answer-input" data-qid="q6" placeholder="高い順：… &gt; … &gt; …&#10;理由：…&#10;学歴・勤続以外の要因：(1) … (2) …"></textarea>
+    <span class="answer-save" data-for="q6">未保存</span>
+  </div>
+
+  <div class="note">
+    <span class="tag">メモ</span>
+    <p>各セクションに記入した内容はブラウザ内（localStorage）に自動で保存されます。同じ端末・同じブラウザでこのページを再度開けば、続きから読み直せます。</p>
+  </div>
+</section>
+
+<div class="footer">
+  労働経済論 第6回「長期雇用と年功賃金」補助教材<br>
+  日本大学 経済学部 / 安藤至大
+</div>
+
+</div>
+
+<script>
+/* =========================================
+   localStorage への保存 / 読み込み
+   ========================================= */
+const STORAGE_KEY = "labor-lecture-s06-answers";
+function loadAnswers() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+  } catch { return {}; }
+}
+function saveAnswers(obj) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+}
+
+const answers = loadAnswers();
+document.querySelectorAll("textarea.answer-input").forEach(t => {
+  const qid = t.dataset.qid;
+  if (answers[qid]) t.value = answers[qid];
+  const indicator = document.querySelector(`.answer-save[data-for="${qid}"]`);
+  let saveTimer;
+  const setIndicator = (state) => {
+    if (!indicator) return;
+    if (state === "saved") { indicator.textContent = "保存済み"; indicator.classList.add("saved"); }
+    else if (state === "saving") { indicator.textContent = "保存中…"; indicator.classList.remove("saved"); }
+    else { indicator.textContent = "未保存"; indicator.classList.remove("saved"); }
+  };
+  if (t.value) setIndicator("saved");
+  t.addEventListener("input", () => {
+    setIndicator("saving");
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      const a = loadAnswers();
+      a[qid] = t.value;
+      saveAnswers(a);
+      setIndicator("saved");
+    }, 350);
+  });
+});
+
+/* =========================================
+   割引現在価値の計算機（読み取りのみ）
+   ========================================= */
+(function() {
+  const sR = document.getElementById("s-r");
+  const sN = document.getElementById("s-n");
+  if (!sR || !sN) return;
+  const rR = document.getElementById("r-r");
+  const rN = document.getElementById("r-n");
+  const rDelta = document.getElementById("r-delta");
+  const rPv1 = document.getElementById("r-pv1");
+  const rPvn = document.getElementById("r-pvn");
+  const vPv = document.getElementById("v-pv");
+
+  function update() {
+    const r = (+sR.value) / 100;
+    const n = +sN.value;
+    rR.textContent = (+sR.value).toFixed(1) + " %";
+    rN.textContent = n + " 年";
+
+    if (r === 0) {
+      rDelta.textContent = "1.000";
+      rPv1.textContent = "10000 円";
+      rPvn.textContent = n.toFixed(1) + " 万円";
+      vPv.innerHTML = "利子率が 0% のときは割り引かれず、現在価値は名目額と一致する（割引因子 = 1）。";
+      return;
+    }
+    const delta = 1 / (1 + r);
+    const pv1 = delta;                 // 万円（1万円の現在価値）
+    const pvn = (1 - Math.pow(1 + r, -n)) / r;  // 万円
+    rDelta.textContent = delta.toFixed(3);
+    rPv1.textContent = Math.round(pv1 * 10000) + " 円";
+    rPvn.textContent = pvn.toFixed(1) + " 万円";
+    vPv.innerHTML = `1 年後の 1 万円は今の <strong>${Math.round(pv1*10000).toLocaleString()} 円</strong> の価値。` +
+      `毎年 1 万円を ${n} 年間受け取っても、現在価値の合計は <strong>${pvn.toFixed(1)} 万円</strong>（名目 ${n} 万円より小さい）。`;
+  }
+  [sR, sN].forEach(s => s.addEventListener("input", update));
+  update();
+})();
+
+/* =========================================
+   3 パターンの生涯賃金の現在価値（Canvas 棒グラフ）
+   ========================================= */
+(function() {
+  const canvas = document.getElementById("canvas-pattern");
+  if (!canvas) return;
+  const sR2 = document.getElementById("s-r2");
+  const rR2 = document.getElementById("r-r2");
+  const rPvA = document.getElementById("r-pvA");
+  const rPvB = document.getElementById("r-pvB");
+  const rPvC = document.getElementById("r-pvC");
+  const vPat = document.getElementById("v-pattern");
+  const dpr = window.devicePixelRatio || 1;
+
+  const YEARS = 38;
+  const TOTAL = 20000; // 万円（2億円）
+  // 各年の名目賃金（万円）t = 1..38
+  function wagesA() { const w=[]; for (let t=1;t<=YEARS;t++) w.push(t<=30?400:1000); return w; }
+  function wagesC() { const w=[]; for (let t=1;t<=YEARS;t++) w.push(t<=8?1000:400); return w; }
+  function wagesB() { const v=TOTAL/YEARS; return Array(YEARS).fill(v); }
+
+  function pv(wages, r) {
+    let s = 0;
+    for (let t = 1; t <= wages.length; t++) {
+      s += wages[t-1] / Math.pow(1 + r, t);
+    }
+    return s;
+  }
+
+  function resize() {
+    canvas.width = canvas.clientWidth * dpr;
+    canvas.height = canvas.clientHeight * dpr;
+  }
+
+  function draw() {
+    resize();
+    const ctx = canvas.getContext("2d");
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const W = canvas.clientWidth, H = canvas.clientHeight;
+    ctx.clearRect(0, 0, W, H);
+
+    const r = (+sR2.value) / 100;
+    rR2.textContent = (+sR2.value).toFixed(1) + " %";
+
+    const pvA = pv(wagesA(), r);
+    const pvB = pv(wagesB(), r);
+    const pvC = pv(wagesC(), r);
+    rPvA.textContent = Math.round(pvA).toLocaleString() + " 万円";
+    rPvB.textContent = Math.round(pvB).toLocaleString() + " 万円";
+    rPvC.textContent = Math.round(pvC).toLocaleString() + " 万円";
+
+    const data = [
+      { label: "A 後払い", v: pvA, color: "#b45309" },
+      { label: "B 均等",   v: pvB, color: "#64748b" },
+      { label: "C 前払い", v: pvC, color: "#0e7490" }
+    ];
+
+    const padL = 56, padR = 20, padT = 24, padB = 46;
+    const x0 = padL, x1 = W - padR;
+    const y0 = H - padB, y1 = padT;
+    const maxV = TOTAL; // 0% のときの最大 = 2億
+    const yOf = v => y0 - (y0 - y1) * v / maxV;
+
+    // 軸
+    ctx.strokeStyle = "#94a3b8"; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y0); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0, y1); ctx.stroke();
+
+    // グリッド & 目盛（5000万円刻み）
+    ctx.font = "11px 'JetBrains Mono', monospace";
+    ctx.fillStyle = "#6b7280"; ctx.textAlign = "right";
+    for (let v = 0; v <= maxV; v += 5000) {
+      const y = yOf(v);
+      ctx.strokeStyle = "#eceae3"; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke();
+      ctx.fillText((v/10000).toFixed(1) + "億", x0 - 6, y + 4);
+    }
+
+    // 2億円（名目総額）の基準線
+    const yBase = yOf(TOTAL);
+    ctx.strokeStyle = "#b91c1c"; ctx.lineWidth = 1.4;
+    ctx.setLineDash([5, 4]);
+    ctx.beginPath(); ctx.moveTo(x0, yBase); ctx.lineTo(x1, yBase); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = "#b91c1c"; ctx.textAlign = "left"; ctx.font = "10px 'Noto Sans JP', sans-serif";
+    ctx.fillText("名目総額 2億円", x1 - 96, yBase - 5);
+
+    // 棒
+    const n = data.length;
+    const slot = (x1 - x0) / n;
+    const bw = Math.min(slot * 0.5, 90);
+    data.forEach((d, i) => {
+      const cx = x0 + slot * (i + 0.5);
+      const top = yOf(d.v);
+      ctx.fillStyle = d.color;
+      ctx.fillRect(cx - bw/2, top, bw, y0 - top);
+      // 値
+      ctx.fillStyle = "#1f2937"; ctx.textAlign = "center";
+      ctx.font = "12px 'JetBrains Mono', monospace";
+      ctx.fillText((d.v/10000).toFixed(2) + "億", cx, top - 8);
+      // ラベル
+      ctx.fillStyle = "#4b5563";
+      ctx.font = "12px 'Noto Sans JP', sans-serif";
+      ctx.fillText(d.label, cx, y0 + 18);
+    });
+
+    // verdict
+    if (r === 0) {
+      vPat.innerHTML = "利子率が 0% のときは割引がないため、A・B・C の現在価値はすべて等しく <strong>2 億円</strong>。";
+    } else {
+      vPat.innerHTML = `利子率 ${(+sR2.value).toFixed(1)}% では、早く受け取る <span class="ok">C（前払い）が最大（${(pvC/10000).toFixed(2)}億）</span>、` +
+        `後払いの <span class="ng">A が最小（${(pvA/10000).toFixed(2)}億）</span>。名目は同じでも、受け取る時期で現在価値が変わる。`;
+    }
+  }
+  sR2.addEventListener("input", draw);
+  window.addEventListener("resize", draw);
+  setTimeout(draw, 50);
+})();
+</script>
+</body>
+</html>
